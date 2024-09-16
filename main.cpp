@@ -1,3 +1,11 @@
+/*
+COP4610 Project 1
+Memory Management
+
+Author: Tristan Cameron
+*/
+
+
 #include <iostream>
 #include <fstream>
 #include <vector>

@@ -1,3 +1,9 @@
+# COP4610 Project 1
+# Memory Management
+
+# Author: Tristan Cameron
+
+
 # Compiler
 CC = g++
 CFLAGS = -std=c++11 -Wall
