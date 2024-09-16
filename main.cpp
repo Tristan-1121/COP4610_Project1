@@ -65,10 +65,15 @@ void generateMemoryMap(const std::vector<MemoryBlock>& memoryBlocks) {
 }
 
 int main() {
+    std::cout << "This program creates the memory map table in regards to used and unused areas in the system memory after receiving the base and limit register contents." << std::endl;
+    std::cout << std::endl;
+    std::cout << "These base and limit values are being read from the file containing user input." << std::endl;
+    std::cout << std::endl;
     std::string filename = "24F_COP4610_Project1_InputFile.txt";
     std::vector<MemoryBlock> memoryBlocks;
 
     // Read and display the memory slots
+    std::cout << "The table of unused memory area\n" << "-------------------------------\n";
     readMemorySlots(filename, memoryBlocks);
     displayMemorySlots(memoryBlocks);
 
