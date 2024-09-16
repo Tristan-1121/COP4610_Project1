@@ -4,27 +4,32 @@
 # Author: Tristan Cameron
 
 
-# Compiler
-CC = g++
-CFLAGS = -std=c++11 -Wall
+# Compiler and flags
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
 
-# Files
+# Target executable name
 TARGET = memory_manager
-OBJ = main.o
+
+# Source files
+SRCS = main.cpp
+OBJS = $(SRCS:.cpp=.o)
 
 # Build target
 all: $(TARGET)
 
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+# Link object files to create the executable
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) -c main.cpp
+# Compile source files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Run the program
-run: $(TARGET)
-	./$(TARGET)
-
-# Clean up
+# Clean up build files
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(OBJS) $(TARGET)
+
+# Default target to build and run the program
+all: $(TARGET)
+	./$(TARGET)
